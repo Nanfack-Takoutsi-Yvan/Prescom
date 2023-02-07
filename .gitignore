@@ -1,4 +1,8 @@
+# Common files ignored
 node_modules/
 .cache/
 public
 src/gatsby-types.d.ts
+
+# Environment files
+.env.*
