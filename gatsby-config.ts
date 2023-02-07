@@ -1,3 +1,8 @@
+// More about .env: https://www.gatsbyjs.com/docs/how-to/local-development/environment-variables/
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 import type { GatsbyConfig } from "gatsby";
 
 const config: GatsbyConfig = {
@@ -12,8 +17,8 @@ const config: GatsbyConfig = {
   plugins: [{
     resolve: 'gatsby-source-contentful',
     options: {
-      "accessToken": "itwu_YyefIY5q07NIi8nKOdJeO5ujNPUWH4oEyA85Xw",
-      "spaceId": "x12ezq2l10gw"
+      "accessToken": process.env.ACCESS_TOKEN,
+      "spaceId": process.env.SPACE_ID
     }
   }, "gatsby-plugin-image", "gatsby-plugin-sharp", "gatsby-transformer-sharp", "gatsby-plugin-google-gtag", {
     resolve: 'gatsby-source-filesystem',
