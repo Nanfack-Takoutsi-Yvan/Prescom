@@ -5,7 +5,7 @@
 import * as React from 'react'
 import { render } from '@testing-library/react'
 
-import Header from '../components/Header'
+import Header from '../src/components/Header'
 
 describe(`Header`, () => {
   it(`renders siteTitle`, () => {

@@ -1,5 +1,5 @@
 // More about .env: https://www.gatsbyjs.com/docs/how-to/local-development/environment-variables/
-import type { GatsbyConfig } from 'gatsby'
+import type { GatsbyConfig, GatsbyNode } from 'gatsby'
 
 require('dotenv').config({
   // eslint-disable-line
@@ -19,14 +19,14 @@ const config: GatsbyConfig = {
     {
       resolve: 'gatsby-source-contentful',
       options: {
-        accessToken: process.env.ACCESS_TOKEN,
-        spaceId: process.env.SPACE_ID
+        spaceId: '32yr81va4wnd',
+        accessToken: 'F8n5KTS7ybclMmBYJHh09WTEnoMZ2mmAbGE4s6wlLCo'
       }
     },
     'gatsby-plugin-image',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
-    'gatsby-plugin-google-gtag',
+    // 'gatsby-plugin-google-gtag',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -38,13 +38,11 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-plugin-eslint`,
       options: {
-        test: /\.tsx?$/,
-        exclude: /(node_modules|.cache|public)/,
+        extensions: ['js', 'jsx', 'ts', 'tsx'],
+        exclude: ['node_modules', 'bower_components', '.cache', 'public'],
         stages: ['develop'],
-        options: {
-          emitWarning: true,
-          failOnError: false
-        }
+        emitWarning: true,
+        failOnError: false
       }
     }
   ]
