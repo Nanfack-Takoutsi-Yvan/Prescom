@@ -22,7 +22,14 @@
         "sourceType": "module",
         "project": "./tsconfig.json"
     },
-    "ignorePatterns": ["public/*", "commitlint.config.js", "gatsby-config.ts"],
+    "ignorePatterns": [
+        "public/*", 
+        "commitlint.config.js", 
+        "gatsby-config.ts",
+        "jest*",
+        "__mocks__/*",
+        "loadershim.js"
+    ],
     "plugins": [
         "react",
         "@typescript-eslint",
