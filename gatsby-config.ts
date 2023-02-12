@@ -17,8 +17,8 @@ const config: GatsbyConfig = {
   plugins: [{
     resolve: 'gatsby-source-contentful',
     options: {
-      accessToken: process.env.ACCESS_TOKEN,
-      spaceId: process.env.SPACE_ID,
+      accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+      spaceId: process.env.CONTENTFUL_SPACE_ID,
     },
   }, 'gatsby-plugin-image', 'gatsby-plugin-sharp', 'gatsby-transformer-sharp', 'gatsby-plugin-google-gtag', {
     resolve: 'gatsby-source-filesystem',
@@ -27,6 +27,18 @@ const config: GatsbyConfig = {
       path: './src/images/',
     },
     __key: 'images',
+  }, 
+  {
+    resolve: `gatsby-plugin-google-gtag`, // learn more: https://www.gatsbyjs.com/plugins/gatsby-plugin-google-gtag/
+    options: {
+      trackingIds: [
+        process.env.GA_TRACKING_ID,
+      ],
+      pluginConfig: {
+        head: true,
+        anonynize: true,
+      },
+    },
   }],
 }
 
