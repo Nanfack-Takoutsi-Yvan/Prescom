@@ -20,9 +20,18 @@
     "parserOptions": {
         "ecmaVersion": "latest",
         "sourceType": "module",
-        "project": "./tsconfig.json"
+        "project": "./tsconfig.json",
+        "parser": "@typescript-eslint/parser"
     },
-    "ignorePatterns": ["public/*", "commitlint.config.js", "gatsby-config.ts"],
+    "ignorePatterns": [
+        "public/*", 
+        "commitlint.config.js", 
+        "gatsby-config.ts",
+        "jest*",
+        "__mocks__/*",
+        "loadershim.js",
+        "setup-test-env.js"
+    ],
     "plugins": [
         "react",
         "@typescript-eslint",

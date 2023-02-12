@@ -1,0 +1,18 @@
+/**
+* Learn more: https://www.gatsbyjs.com/docs/how-to/custom-configuration/babel/
+*/
+{
+  "plugins": [
+    ["@babel/plugin-proposal-decorators", { "legacy": true }]
+  ],
+  "presets": [
+    [
+      "babel-preset-gatsby",
+      {
+        "targets": {
+          "browsers": [">0.25%", "not dead"]
+        }
+      }
+    ]
+  ]
+}
