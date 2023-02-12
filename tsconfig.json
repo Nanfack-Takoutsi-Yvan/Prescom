@@ -20,13 +20,13 @@
     "noImplicitAny": false,
     "baseUrl": "src",
     "paths": {
-      "@components/": ["components/"],
-      "@images/": ["images/"],
-      "@pages/": ["pages/"],
-      "@utils/": ["utils/"],
-      "@services/": ["services/"],
-      "@templates/": ["templates/"]
+      "@components/": ["components/*"],
+      "@images/": ["images/*"],
+      "@pages/": ["pages/*"],
+      "@utils/": ["utils/*"],
+      "@services/": ["services/*"],
+      "@templates/": ["templates/*"]
     }
   },
-  "include": ["./src/*/"]
+  "include": ["./src/**/*"]
 }
