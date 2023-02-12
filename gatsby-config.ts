@@ -39,6 +39,19 @@ const config: GatsbyConfig = {
         anonynize: true,
       },
     },
+  },
+  {
+    resolve: `gatsby-omni-font-loader`,
+    options: {
+      enableListener: true,
+      preconnect: [`https://www.cdnfonts.com/`, `https://www.cdnfonts.com/euclid-circular-b.font`],
+      web: [
+        {
+          name: `Euclid Circular B`,
+          file: `https://fonts.cdnfonts.com/css/euclid-circular-b`,
+        },
+      ],
+    },
   }],
 }
 
