@@ -1,7 +1,11 @@
 @import "../assets/styles/properties.scss";
 *:focus {
   outline-color: rgb(var(--primary-color-rgb));
-  z-index: 2;
+  z-index: 3;
+}
+
+*::selection {
+  background-color: rgba(var(--primary-color-rgb), .25);;
 }
 
 body {
@@ -10,6 +14,7 @@ body {
   font-family: var(--font-family);
   font-size: var(--font-size);
   font-weight: var(--font-weight);
+  color: var(--text-color);
 }
 
 h5 {

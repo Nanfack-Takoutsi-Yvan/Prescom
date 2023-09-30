@@ -24,6 +24,12 @@
   .menuItemsContainer {
     padding: 80px 0 80px 80px;
     border-right: var(--separator-style);
+    overflow: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
     ul {
       padding: 0;
