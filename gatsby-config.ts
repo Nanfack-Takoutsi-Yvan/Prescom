@@ -20,14 +20,14 @@ const config: GatsbyConfig = {
       accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
       spaceId: process.env.CONTENTFUL_SPACE_ID,
     },
-  }, 'gatsby-plugin-image', 'gatsby-plugin-sharp', 'gatsby-transformer-sharp', 'gatsby-plugin-google-gtag', {
+  }, 'gatsby-plugin-image', 'gatsby-plugin-sharp', 'gatsby-transformer-sharp', 'gatsby-plugin-google-gtag', 'gatsby-plugin-sass', 'gatsby-plugin-react-helmet', {
     resolve: 'gatsby-source-filesystem',
     options: {
       name: 'images',
       path: './src/images/',
     },
     __key: 'images',
-  }, 
+  },
   {
     resolve: `gatsby-plugin-google-gtag`, // learn more: https://www.gatsbyjs.com/plugins/gatsby-plugin-google-gtag/
     options: {
@@ -51,6 +51,14 @@ const config: GatsbyConfig = {
           file: `https://fonts.cdnfonts.com/css/euclid-circular-b`,
         },
       ],
+    },
+  },
+  {
+    resolve: 'gatsby-plugin-react-svg',
+    options: {
+      rule: {
+        include: /assets/,
+      },
     },
   }],
 }

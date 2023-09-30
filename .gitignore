@@ -5,4 +5,4 @@ public
 src/gatsby-types.d.ts
 
 # Environment files
-.env.*
+.env*

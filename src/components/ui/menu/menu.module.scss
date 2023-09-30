@@ -1,0 +1,168 @@
+.container {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  right: 0;
+  top: 0;
+  display: grid;
+  grid-template-columns: 2.7fr 1fr;
+  transition: var(--normal-transition);
+  transform: rotateY(50deg) rotateX(-1deg) rotateZ(-1deg);
+  visibility: hidden;
+  opacity: 0;
+  z-index: -99;
+
+  &.visible {
+    visibility: visible;
+    opacity: 1;
+    transform: rotateY(0deg) rotateX(0deg) rotateZ(0deg);
+    z-index: 99;
+  }
+
+
+  .menuItemsContainer {
+    padding: 80px 0 80px 80px;
+    border-right: var(--separator-style);
+
+    ul {
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      list-style-type: none;
+      display: block !important;
+      .listItem {
+        border-top: var(--separator-style);
+        transition: var(--normal-transition);
+        &:last-of-type {
+          border-bottom: var(--separator-style);
+        }
+
+        a {
+          font-weight: var(--font-weight-bold);
+          text-decoration: solid;
+          color: var(--black-color);
+          padding: 24px;
+          transition: var(--normal-transition);
+          display: flex;
+          overflow: hidden;
+          &:hover, &:focus{
+            color: rgb(var(--primary-color-rgb));
+          }
+        }
+
+        .item {
+          display: flex;
+          justify-content: space-between;
+
+          a {
+            font-size: var(--font-size-big);
+            color: var(--black-color);
+            padding: 32px 16px 32px 0px;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            &:hover, &:focus{
+              color: rgb(var(--primary-color-rgb));
+              & .index {
+                transform: translateX(0px);
+                color: var(--text-color);
+                opacity: 1;
+              }
+            }
+
+            .index {
+              text-align: center;
+              font-size: var(--font-size);
+              transform: translateX(60px);
+              transition: var(--normal-transition);
+              opacity: 0;
+            }
+          }
+
+          button {
+            border: none;
+            border-left: var(--separator-style);
+            width: 100px;
+            cursor: pointer;
+            z-index: 1;
+            background-image: url("../../../images/plus.svg");
+            background-color: var(--white-color);
+            transition: var(--normal-transition);
+            background-size: 24px;
+            background-repeat: no-repeat;
+            background-position: center;
+
+            &:hover, &:focus {
+              background-image: url("../../../images/plus_primary.svg");
+              background-color: var(--black-color);
+            }
+          }
+        }
+
+        .subItem {
+          border-top: var(--separator-style);
+        }
+      }
+    }
+  }
+
+  .contactContainer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: var(--font-large);
+    font-weight: var(--font-weight-bold);
+    padding: 80px;
+
+    .logoContainer {
+      display: flex;
+      flex-direction: column;
+      row-gap: 12px;
+
+      .closeIcon {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-self: flex-end;
+        margin-top: -40px;
+        border-radius: 50%;
+        transition: var(--normal-transition);
+        border: var(--separator-style);
+        background-image: url("../../../images/x.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: var(--white-color);
+        img {
+          width: 24px;
+          height: 24px;
+        }
+        &:hover, &:focus {
+          background-color: rgba(var(--primary-color-rgb), .15);
+        }
+      }
+
+      .prescomLogo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: var(--font-size-small);
+        font-weight: 600;
+        align-self: flex-start;
+      }
+    }
+
+    .contactItemContainer {
+      display: flex;
+      flex-direction: column;
+      row-gap: 56px;
+      .contactItem {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+}
