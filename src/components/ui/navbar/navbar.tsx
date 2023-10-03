@@ -18,6 +18,7 @@ const Navbar: FC = () => {
       </div>
       <button
         type="button"
+        aria-label="Open Menu"
         onClick={() => setOpenMenu(true)}
         className={clsx(styles.icon, styles.menu)}
       >

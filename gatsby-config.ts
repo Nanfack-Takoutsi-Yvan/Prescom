@@ -60,6 +60,12 @@ const config: GatsbyConfig = {
         include: /assets/,
       },
     },
+  },
+  {
+    resolve: 'gatsby-plugin-manifest',
+    options: {
+      "icon": "src/images/prescom.png"
+    }
   }],
 }
 
