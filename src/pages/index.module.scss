@@ -1,0 +1,24 @@
+@import "../assets/styles/properties.scss";
+*:focus {
+  outline-color: rgb(var(--primary-color-rgb));
+  z-index: 3;
+}
+
+*::selection {
+  background-color: rgba(var(--primary-color-rgb), .25);;
+}
+
+body {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  font-weight: var(--font-weight);
+  color: var(--text-color);
+}
+
+h5 {
+  margin: 2px 0px;
+  color: rgba(var(--secondary-color-rgb), 0.6);
+  font-weight: var(--font-weight-bold);
+}
