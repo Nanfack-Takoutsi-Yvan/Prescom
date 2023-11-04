@@ -35,7 +35,6 @@ type RawContentfulText = {
 type AppPagesContent = {
   name: string
   title: string
-  uri: string
   description: string
   subPages: {
     title: string

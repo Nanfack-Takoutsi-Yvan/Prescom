@@ -8,7 +8,7 @@ export const useLocalization = (
   currentLocale: string,
   setLocale: (value: string) => void
 ) => {
-  const [content, setContent] = useState<AppPagesContent[]>()
+  const [content, setContent] = useState<AppPagesContent>()
 
   const allLocalizedContent = container.localization.getTranslations()
   const locales = Object.keys(allLocalizedContent)
@@ -19,7 +19,7 @@ export const useLocalization = (
       setLocale(usedLocale)
     } else {
       localStorage.setItem(LOCALSTORAGE_LANGUAGE_KEY, currentLocale)
-      setContent(allLocalizedContent[currentLocale])
+      setContent(allLocalizedContent[currentLocale][window.location.pathname])
     }
   }, [currentLocale])
 
