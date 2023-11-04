@@ -8,7 +8,6 @@ on:
       - dev
 jobs:
   build_and_deploy:
-    needs: test
     name: Deploy on Firebase
     runs-on: macos-latest
     environment: test
@@ -26,7 +25,7 @@ jobs:
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PRESCOM_CORPORATION_GROUP_TEST }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PRESCOM_CORPORATION_GROUP }}'
           channelId: live
           projectId: '${{ secrets.FIREBASE_PROJECT_ID }}'
           target: '${{ secrets.FIREBASE_TARGET }}'
