@@ -22,7 +22,7 @@ const config: GatsbyConfig = {
         spaceId: process.env.CONTENTFUL_SPACE_ID,
       },
     },
-      'gatsby-plugin-layout', 'gatsby-plugin-image', 'gatsby-plugin-sharp', 'gatsby-transformer-sharp', 'gatsby-plugin-google-gtag', 'gatsby-plugin-sass',
+      'gatsby-plugin-layout', 'gatsby-plugin-image', 'gatsby-plugin-sharp', 'gatsby-transformer-sharp', 'gatsby-plugin-sass',
     {
       resolve: 'gatsby-source-filesystem',
       options: {

@@ -20,7 +20,7 @@ const MainLayout: React.FC<PageProps> = ({ children }) => {
       content,
       setLocale
     }),
-    []
+    [locale, locales, content, setLocale]
   )
 
   return (
