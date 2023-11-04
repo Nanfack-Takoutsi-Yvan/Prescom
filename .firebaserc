@@ -1,5 +1,15 @@
 {
   "projects": {
     "default": "prescom-corporation-group"
-  }
+  },
+  "targets": {
+    "prescom-corporation-group": {
+      "hosting": {
+        "test-website": [
+          "prescom-corporation-group-test-a"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }
