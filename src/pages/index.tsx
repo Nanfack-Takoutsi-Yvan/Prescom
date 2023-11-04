@@ -1,19 +1,17 @@
-/* eslint-disable react/jsx-no-undef */
+import { type HeadFC } from 'gatsby'
 import * as React from 'react'
-import type { HeadFC, PageProps } from 'gatsby'
-import useCursor from '../services/hooks/useCursor'
-import Navbar from '../components/ui/navbar/navbar'
-import './index.module.scss'
+import * as styles from './styles.module.scss'
+import { getAppContext } from '../services/contexts/appStateContext'
 
-const IndexPage: React.FC<PageProps> = () => {
-  useCursor()
+const Home: React.FC = () => {
+  const { content } = getAppContext()
+  console.log({ content })
   return (
-    <main>
-      <Navbar />
-    </main>
+    <div className={styles.helloworld}>
+      {content?.assets.homePage_hello_world}
+    </div>
   )
 }
 
-export default IndexPage
-
+export default Home
 export const Head: HeadFC = () => <title>Home Page</title>
