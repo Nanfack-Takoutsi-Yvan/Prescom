@@ -3,7 +3,7 @@
 name: Deploy to Firebase Hosting on merge
 on:
   workflow_dispatch:
-  pull_request:
+  push:
     types:
       - closed
     branches:
