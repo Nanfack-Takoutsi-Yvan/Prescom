@@ -1,0 +1,48 @@
+# https://github.com/firebase/firebase-tools
+
+name: Deploy to Production
+on:
+  workflow_dispatch:
+  push:
+    tag:
+      - 'v[0-9].[0-9].[0-9]'
+    branches:
+      - release
+jobs:
+  test:
+    name: Test Web App
+    runs-on: macos-latest
+    steps:
+      - name: 🏗 Setup Repo
+        uses: actions/checkout@v3
+      - name: 🏗 Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: 📦 Install Dependencies
+        run: npm ci
+      - name: 🧪 Test app
+        run: npm run test
+
+  build_and_deploy:
+    needs: test
+    name: Deploy on Firebase
+    runs-on: macos-latest
+    environment: production
+    env:
+      CONTENTFUL_ACCESS_TOKEN: '${{ secrets.CONTENTFUL_ACCESS_TOKEN }}'
+      CONTENTFUL_SPACE_ID: '${{ secrets.CONTENTFUL_SPACE_ID }}'
+    steps:
+      - name: 🏗 Setup Repo
+        uses: actions/checkout@v3
+      - name: 🏗 Setup Node
+        uses: actions/setup-node@v3
+      - name: 📦 Install Dependencies and Build
+        run: npm ci && npm run build
+      - name: 🚀 Deploy
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PRESCOM_CORPORATION_GROUP }}'
+          channelId: live
+          projectId: '${{ secrets.FIREBASE_PROJECT_ID }}'
