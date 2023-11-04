@@ -1,13 +1,13 @@
 import clsx from 'clsx'
-import React, { FC, useState } from 'react'
+import * as React from 'react'
 import { Link } from 'gatsby'
 import * as styles from './navbar.module.scss'
 import PrescomLogo from '../../../images/prescom.png'
 import ArrowDownIcon from '../../../images/arrow-down.svg'
 import Menu from '../menu/menu'
 
-const Navbar: FC = () => {
-  const [openMenu, setOpenMenu] = useState<boolean>(false)
+const Navbar: React.FC = () => {
+  const [openMenu, setOpenMenu] = React.useState<boolean>(false)
 
   return (
     <div className={clsx(styles.container, styles.flexColumn)}>
