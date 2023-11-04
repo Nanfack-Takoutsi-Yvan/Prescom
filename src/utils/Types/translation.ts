@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-interface ContentfulData {
+type ContentfulData = {
   allContentfulPrcPages: {
     nodes: {
       name: string
@@ -19,15 +19,26 @@ interface ContentfulData {
         value: {
           raw: string
         }
-      }
+      }[]
     }[]
   }
 }
 
-interface RawContentfulText {
+type RawContentfulText = {
   content: {
     content: {
       value: string
     }[]
   }[]
+}
+
+type AppPagesContent = {
+  name: string
+  title: string
+  uri: string
+  description: string
+  subPages: {
+    title: string
+  }[]
+  assets: Record<string, string>
 }

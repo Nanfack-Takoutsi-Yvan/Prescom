@@ -1,4 +1,4 @@
-import LocalizationService from './localisation'
+import LocalizationService from './localization'
 
 class Container {
   public localization: LocalizationService
