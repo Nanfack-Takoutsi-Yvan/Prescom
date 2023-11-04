@@ -1,0 +1,22 @@
+[debug] [2023-11-04T20:33:46.787Z] ----------------------------------------------------------------------
+[debug] [2023-11-04T20:33:46.789Z] Command:       /Users/yvanovitch/.nvm/versions/node/v18.18.2/bin/node /Users/yvanovitch/.nvm/versions/node/v18.18.2/bin/firebase init
+[debug] [2023-11-04T20:33:46.789Z] CLI Version:   12.8.0
+[debug] [2023-11-04T20:33:46.790Z] Platform:      darwin
+[debug] [2023-11-04T20:33:46.790Z] Node Version:  v18.18.2
+[debug] [2023-11-04T20:33:46.791Z] Time:          Sat Nov 04 2023 21:33:46 GMT+0100 (West Africa Standard Time)
+[debug] [2023-11-04T20:33:46.791Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-11-04T20:33:46.794Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2023-11-04T20:33:46.851Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-11-04T20:33:46.851Z] > authorizing via signed-in user (contact@yvannanfack.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/yvanovitch/Desktop/Prescom/Prescom
+
