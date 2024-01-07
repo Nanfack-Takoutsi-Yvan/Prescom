@@ -4,9 +4,13 @@ import { Link } from 'gatsby'
 import * as styles from './navbar.module.scss'
 import PrescomLogo from '../../../images/prescom.png'
 import ArrowDownIcon from '../../../images/arrow-down.svg'
-import Menu from '../menu/menu'
+import Menu from '../Menu'
 
-const Navbar: React.FC = () => {
+type Props = {
+  items: NavItem[]
+}
+
+const Navbar: React.FC<Props> = ({ items }) => {
   const [openMenu, setOpenMenu] = React.useState<boolean>(false)
 
   return (
@@ -32,7 +36,7 @@ const Navbar: React.FC = () => {
           alt="Menu"
         />
       </div>
-      <Menu isOpen={openMenu} setOpen={setOpenMenu} />
+      <Menu menuItems={items} isOpen={openMenu} setOpen={setOpenMenu} />
     </div>
   )
 }

@@ -36,7 +36,7 @@
       margin: 0;
       width: 100%;
       list-style-type: none;
-      display: block !important;
+      display: block;
       .listItem {
         border-top: var(--separator-style);
         transition: var(--normal-transition);
@@ -106,8 +106,21 @@
           }
         }
 
-        .subItem {
-          border-top: var(--separator-style);
+        .dropdown {
+          transition: all var(--normal-transition);
+          visibility: hidden;
+          opacity: 0;
+          max-height: 0vh;
+
+          &.dropdown-visible {
+            visibility: visible;
+            max-height: 50vh;
+            opacity: 1;
+          }
+
+          .dropdown-item {
+            border-top: var(--separator-style);
+          }
         }
       }
     }

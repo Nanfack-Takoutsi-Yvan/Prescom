@@ -12,13 +12,13 @@ const useCursor = () => {
   const createStyleLink = (): HTMLLinkElement => {
     const link = document.createElement('link')
     link.rel = 'stylesheet'
-    link.href = 'https://unpkg.com/kursor/dist/kursor.css'
+    link.href = process.env.KURSOR_STYLE_URL || ''
     return link
   }
 
   const createScriptElement = (): HTMLScriptElement => {
     const script = document.createElement('script')
-    script.src = 'https://unpkg.com/kursor'
+    script.src = process.env.KURSOR_SCRIPT_SRC || ''
     script.async = true
     script.onload = () => {
       const Kursor = kursor // Assuming kursor is globally available
@@ -34,14 +34,13 @@ const useCursor = () => {
   const createCursor = (): CursorElements => {
     const link = createStyleLink()
     const script = createScriptElement()
-    document.head.appendChild(link)
-    document.body.appendChild(script)
-
     return { link, script }
   }
 
   useEffect(() => {
     const { link, script } = createCursor()
+    document.head.appendChild(link)
+    document.head.appendChild(script)
     return () => {
       document.head.removeChild(link)
       document.body.removeChild(script)

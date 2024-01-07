@@ -41,3 +41,11 @@ type AppPagesContent = {
   }[]
   assets: Record<string, string>
 }
+
+type NavItem = {
+  uri: string
+  name: string
+  subPages?: {
+    title: string
+  }[]
+}

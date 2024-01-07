@@ -9,7 +9,7 @@ class LocalizationService {
 
   private loadTranslations() {
     this.contentFullTranslationData = useStaticQuery(graphql`
-      query MyQuery {
+      query GetAppContent {
         allContentfulPrcPages {
           nodes {
             uri
@@ -30,6 +30,13 @@ class LocalizationService {
             description {
               raw
             }
+          }
+        }
+        allContentfulPrcContact {
+          nodes {
+            title
+            key
+            value
           }
         }
       }

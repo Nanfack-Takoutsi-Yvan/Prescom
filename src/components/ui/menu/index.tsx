@@ -1,26 +1,27 @@
 /* eslint-disable prefer-destructuring */
-import React, { FC, useCallback, useEffect, useRef } from 'react'
-import { Link } from 'gatsby'
+import * as React from 'react'
 import clsx from 'clsx'
 import * as styles from './menu.module.scss'
 import PrescomLogo from '../../../images/prescom.png'
 import { KEY_NAME_ESC, KEY_NAME_TAB } from '../../../utils/constant'
+import MenuItem from './MenuItem'
 
 type Props = {
   isOpen: boolean
   setOpen: (value: boolean) => void
+  menuItems: NavItem[]
 }
 
-const Menu: FC<Props> = ({ isOpen, setOpen }) => {
-  const menuRef = useRef<HTMLDivElement>(null)
-  const firstFocusable = useRef<any>(null)
-  const lastFocusable = useRef<any>(null)
+const Menu: React.FC<Props> = ({ isOpen, setOpen, menuItems }) => {
+  const menuRef = React.useRef<HTMLDivElement>(null)
+  const firstFocusable = React.useRef<any>(null)
+  const lastFocusable = React.useRef<any>(null)
 
-  const handleClose = useCallback(() => {
+  const handleClose = React.useCallback(() => {
     setOpen(false)
   }, [])
 
-  const handleEventKeyPresses = useCallback(
+  const handleEventKeyPresses = React.useCallback(
     (e: KeyboardEvent) => {
       if (e.key === KEY_NAME_ESC) {
         e.stopPropagation()
@@ -30,7 +31,7 @@ const Menu: FC<Props> = ({ isOpen, setOpen }) => {
     [handleClose]
   )
 
-  const onKeyDownEvent = useCallback((event: KeyboardEvent) => {
+  const onKeyDownEvent = React.useCallback((event: KeyboardEvent) => {
     if (
       document.activeElement === lastFocusable.current &&
       event.key === KEY_NAME_TAB &&
@@ -49,13 +50,13 @@ const Menu: FC<Props> = ({ isOpen, setOpen }) => {
     }
   }, [])
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (isOpen)
       document.addEventListener('keydown', handleEventKeyPresses, true)
     else document.removeEventListener('keydown', handleEventKeyPresses, true)
   }, [isOpen])
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (menuRef.current) {
       const focusableArray = Array.from<HTMLElement>(
         menuRef.current?.querySelectorAll('[tabindex]') ?? []
@@ -76,61 +77,9 @@ const Menu: FC<Props> = ({ isOpen, setOpen }) => {
     >
       <nav className={styles.menuItemsContainer}>
         <ul>
-          <li className={styles.listItem}>
-            <div className={styles.item}>
-              <Link to="/" tabIndex={0}>
-                Home
-                <span className={styles.index}>01</span>
-              </Link>
-            </div>
-          </li>
-          <li className={styles.listItem}>
-            <div className={styles.item}>
-              <Link to="/" tabIndex={0}>
-                Services
-                <span className={styles.index}>02</span>
-              </Link>
-              <button tabIndex={0} type="button" aria-label="Expand Item">
-                {' '}
-              </button>
-            </div>
-          </li>
-          <li className={styles.listItem}>
-            <div className={styles.item}>
-              <Link to="/" tabIndex={0}>
-                Portfolio
-                <span className={styles.index}>03</span>
-              </Link>
-              <button tabIndex={0} type="button" aria-label="Expand Item">
-                {' '}
-              </button>
-            </div>
-            <ul style={{ display: 'none' }}>
-              <li className={styles.subItem}>
-                <Link to="/" tabIndex={0}>
-                  Work done 1
-                </Link>
-              </li>
-              <li className={styles.subItem}>
-                <Link to="/" tabIndex={0}>
-                  Work done 2
-                </Link>
-              </li>
-              <li className={styles.subItem}>
-                <Link to="/" tabIndex={0}>
-                  Work done 3
-                </Link>
-              </li>
-            </ul>
-          </li>
-          <li className={styles.listItem}>
-            <div className={styles.item}>
-              <Link to="/" tabIndex={0}>
-                Contact
-                <span className={styles.index}>04</span>
-              </Link>
-            </div>
-          </li>
+          {menuItems.map((item, index) => (
+            <MenuItem key={item.uri} index={index} item={item} />
+          ))}
         </ul>
       </nav>
       <div className={styles.contactContainer}>

@@ -5,7 +5,6 @@ import { getAppContext } from '../services/contexts/appStateContext'
 
 const Home: React.FC = () => {
   const { content } = getAppContext()
-  console.log({ content })
   return (
     <div className={styles.helloworld}>
       {content?.assets.homePage_hello_world}
@@ -14,4 +13,12 @@ const Home: React.FC = () => {
 }
 
 export default Home
-export const Head: HeadFC = () => <title>Home Page</title>
+
+export const Head: HeadFC = () => {
+  return (
+    <>
+      <title>Prescom Corporation Group</title>
+      <meta />
+    </>
+  )
+}
